@@ -1,0 +1,21 @@
+/*
+* @Author: xiaomi12138
+* @Date:   2017-09-28 18:00:55
+* @Last Modified by:   xiaomi12138
+* @Last Modified time: 2017-09-28 19:51:31
+*/
+@font-face {
+  font-family: 'iconfont';  /* project id 430840 */
+  src: url('//at.alicdn.com/t/font_430840_j0gn2dv67nkit3xr.eot');
+  src: url('//at.alicdn.com/t/font_430840_j0gn2dv67nkit3xr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_430840_j0gn2dv67nkit3xr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_430840_j0gn2dv67nkit3xr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_430840_j0gn2dv67nkit3xr.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
