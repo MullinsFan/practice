@@ -1,19 +1,17 @@
 <template>
   <section>
-    <i v-if="takeaway" class="iconfont">&#xe651;</i>
-    <i v-else class="iconfont">&#xe62a;</i>
-    <span>{{address}}</span>
-    <i v-if="mine" class="iconfont">&#xe60f;</i>
+    <i v-if="takeaway.takeaway" class="iconfont">&#xe651;</i>
+    <i v-else class="iconfont address">&#xe62a;</i>
+    <span>{{address.address}}</span>
+    <i v-if="mine.mine" class="iconfont">&#xe60f;</i>
   </section>
 </template>
 
 <script>
 export default {
+  props: ['takeaway', 'address', 'mine'],
   data () {
     return {
-      takeaway: true,
-      address: '南岸区重庆邮电大学',
-      mine: false
     }
   }
 }
@@ -33,7 +31,8 @@ export default {
       display: flex;
       font-size: 0.30rem;
       line-height: 0.8rem;
-      width: 40%;
+      width: 80%;
+      justify-content:center;
     }
     i {
       display: flex;

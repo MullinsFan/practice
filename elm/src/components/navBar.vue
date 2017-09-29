@@ -36,6 +36,7 @@ export default {
     bottom: 0;
     width: 100%;
     border-top: 0.01rem solid #333;
+    background-color: #fff;
     section {
       display: flex;
       width: 25%;

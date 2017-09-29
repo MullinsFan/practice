@@ -1,8 +1,8 @@
 /*
 * @Author: xiaomi12138
 * @Date:   2017-09-28 19:19:26
-* @Last Modified by:   xiaomi12138
-* @Last Modified time: 2017-09-28 19:19:32
+* @Last Modified by:   xiaomi
+* @Last Modified time: 2017-09-29 23:21:09
 */
 /* reset */
 html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
@@ -13,7 +13,7 @@ html,body,fieldset,img,iframe,abbr{border:0;}
 i,cite,em,var,address,dfn{font-style:normal;}
 [hidefocus],summary{outline:0;}
 li{list-style:none;}
-h1,h2,h3,h4,h5,h6,small{font-size:100%;}
+h1,h2,h3,h4,h5,h6,small,span,p{font-size:100%;font-family: Microsoft Yahei;}
 sup,sub{font-size:83%;}
 pre,code,kbd,samp{font-family:inherit;}
 q:before,q:after{content:none;}
