@@ -1,12 +1,22 @@
 <template>
-  <nav-bar></nav-bar>
+  <div>
+    <top-bar></top-bar>
+    <nav-bar :discover="discover"></nav-bar>
+  </div>
 </template>
 
 <script>
-  import navBar from "../../components/nav.vue"
-  default export {
+  import navBar from '../../components/navBar.vue'
+  import topBar from '../../components/topBar.vue'
+  export default {
     components: {
-      navBar
+      navBar,
+      topBar
+    },
+    data () {
+      return {
+        discover: true
+      }
     }
   }
 </script>

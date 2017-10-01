@@ -1,12 +1,22 @@
 <template>
-  <nav-bar></nav-bar>
+  <div>
+    <top-bar :mine="mine"></top-bar>
+    <nav-bar :mine="mine"></nav-bar>
+  </div>
 </template>
 
 <script>
-  import navBar from "../../components/nav.vue"
-  default export {
+  import navBar from '../../components/navBar.vue'
+  import topBar from '../../components/topBar.vue'
+  export default {
     components: {
-      navBar
+      navBar,
+      topBar
+    },
+    data () {
+      return {
+        mine: true
+      }
     }
   }
 </script>

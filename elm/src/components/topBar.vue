@@ -1,15 +1,26 @@
 <template>
   <section>
-    <i v-if="takeaway.takeaway" class="iconfont">&#xe651;</i>
+    <i v-if="takeaway" class="iconfont">&#xe651;</i>
     <i v-else class="iconfont address">&#xe62a;</i>
-    <span>{{address.address}}</span>
-    <i v-if="mine.mine" class="iconfont">&#xe60f;</i>
+    <span>{{address}}</span>
+    <i v-if="mine" class="iconfont">&#xe60f;</i>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['takeaway', 'address', 'mine'],
+  // 传props时用数组和对象的区别
+  props: {
+    takeaway: {
+      default: false
+    },
+    address: {
+      default: 'lalamu'
+    },
+    mine: {
+      default: false
+    }
+  },
   data () {
     return {
     }
