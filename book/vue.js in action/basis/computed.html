@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    总价：{{ prices }}
+    <!-- 计算属性作用：对数据进行较为复杂的处理，与methods相比，具有缓存 -->
+    <!-- 直接在computed输入，不用再data里声明 -->
+  </div>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        package1: [
+          {
+            name: 'iphone',
+            price: 4324,
+            count: 2
+          },
+          {
+            name: 'ipad',
+            price: 2343,
+            count: 7
+          },
+        ],
+        package2: [
+          {
+            name: 'apple',
+            price: 4324,
+            count: 2
+          },
+          {
+            name: 'banana',
+            price: 2343,
+            count: 7
+          },
+        ]
+      },
+      computed: {
+        prices: function() {
+          var prices = 0
+          for (var i = 0; i<this.package1.length;i++) {
+            prices += this.package1[i].price * this.package1[i].count
+          }
+          for (var i = 0; i<this.package2.length;i++) {
+            prices += this.package2[i].price * this.package2[i].count
+          }
+          return prices
+        }
+      }
+    })
+  </script>
+</body>
+</html>

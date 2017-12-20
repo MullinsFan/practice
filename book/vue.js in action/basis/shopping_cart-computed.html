@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table {
+      border: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" v-cloak>
+    <template v-if="list.length">
+      <table border="1px">
+          <thead>
+              <tr>
+                <th></th>
+                <th>商品名称</th>
+                <th>商品单价</th>
+                <th>购买数量</th>
+                <th>操作</th>
+              </tr>
+          </thead>
+          <tbody v-for="(item,index) in list" :key="index">
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+                <td>
+                  <!-- 等于1时禁用 -->
+                  <button type="submit" :disabled="item.count==1" @click="minuscount(index)">-</button>
+                  {{item.count}}
+                  <button type="submit" @click="addcount(index)">+</button>
+                </td>
+                <td><button type="submit" @click="delet(index)">移除</button></td>
+              </tr>
+          </tbody>
+        </table>
+        <p>总价：{{prices}}</p>
+    </template>
+  </div>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        list: [
+          {
+            id: 1,
+            name: 'iPhone 7',
+            price: 6188,
+            count: 1
+          },
+          {
+            id: 2,
+            name: 'ipad pro',
+            price: 5888,
+            count: 1
+          },
+          {
+            id: 3,
+            name: 'macbook pro',
+            price: 21488,
+            count: 1
+          }
+        ]
+      },
+      computed: {
+        prices: function() {
+          var prices = 0
+          for(var i = 0;i < this.list.length;i++) {
+            var _list = this.list[i]
+            prices += _list.price * _list.count
+          }
+          // return prices
+          // 千位符处理
+          return prices.toString().replace(/\B(?=(\d{3})+$)/g,',')
+        }
+      },
+      methods: {
+        addcount: function(index) {
+            this.list[index].count++
+        },
+        minuscount: function(index) {
+          // if(this.list[index].count != 1){
+            this.list[index].count--
+          // }
+        },
+        delet: function (index) {
+          this.list.splice(index,1)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
