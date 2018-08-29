@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>assert</title>
+  <style>
+    #results li.pass {
+      color: green;
+    }
+    #results li.fail {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form id="testSubject" action="/"></form>
+  <ul id="results"></ul>
+  <script>
+    function assert(value,desc) {
+      var li = document.createElement('li')
+      li.className = value ? "pass" : "fail"
+      li.appendChild(document.createTextNode(desc))
+      document.getElementById('results').appendChild(li)
+    }
+    var json = '{"name":"Ninja"}'
+    var object = eval("(" + json + ")")
+    assert(object.name === "Ninja","My name is Ninja");
+    // (function test() {
+      var input = document.createElement('input');
+      input.type = 'text';
+      assert(input.type == 'text','Input type is text');
+
+      document.getElementById('testSubject')
+              .appendChild(input);
+      input.type = 'hidden';
+      assert(input.type == 'hidden', 'Input type changed to hidden');
+    // })()
+  </script>
+</body>
+</html>

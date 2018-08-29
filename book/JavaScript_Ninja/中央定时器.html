@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>中央定时器控制</title>
+</head>
+<body>
+  <div id="box" style="background-color: red;width: 200px; height: 200px;position:relative">hello!</div>
+  <script>
+    // 中央定时器控制对象
+    var timers = {
+      // 定时器储存器及函数储存器
+      timerId: 0,
+      timers: [],
+
+      add: function(fn) {
+        this.timers.push(fn)
+      },
+
+      start: function() {
+        if (this.timerId) return;
+        (function runNext() {
+          if(timers.timers.length > 0) {
+            // 循环执行一遍储存区中的函数
+            for(var i = 0; i < timers.timers.length; i++) {
+              // 如果已不满足条件 就删除该函数
+              if (timers.timers[i]() === false) {
+                timers.timers.splice(i,1)
+                i--
+              }
+            }
+            // 重复执行当前函数并开启一个定时器
+            timers.timerId = setTimeout(runNext,10)
+          }
+        })()
+      },
+
+      stop: function() {
+        clearTimeout(this.timerId)
+        this.timerId = 0
+      }
+    };
+
+    (function changeS() {
+      var box = document.getElementById('box'),
+          x = 0,
+          y = 20;
+      timers.add(function(){
+        box.style.left = x + 'px'
+        if(++x > 50) return false
+      })
+      timers.add(function(){
+        box.style.top = y + 'px'
+        if(++y > 120) return false
+      })
+      timers.start();
+    })();
+  </script>
+</body>
+</html>

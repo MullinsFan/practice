@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="main">
     <h1>欢迎来到热图加载系统</h1>
-    <el-button type="primary">点击上传本地图片</el-button>
-    <el-button type="primary" plain>主要按钮</el-button>
-    <button>点击填写在线图片</button>
+    <div>
+      <el-button type="primary">点击上传本地图片</el-button>
+      <el-button type="primary">点击上传在线图片</el-button>
+    </div>
     <Counter :number="number"></Counter>
   </div>
 </template>
@@ -29,4 +30,12 @@ export default {
   }
 }
 </script>
+<style scoped>
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
+
 
